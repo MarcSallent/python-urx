@@ -306,11 +306,11 @@ class SecondaryMonitor(Thread):
                 rmode = 7
 
             if self._dict["RobotModeData"]["robotMode"] == rmode \
-                    and self._dict["RobotModeData"]["isRealRobotEnabled"] is True \
                     and self._dict["RobotModeData"]["isEmergencyStopped"] is False \
                     and self._dict["RobotModeData"]["isSecurityStopped"] is False \
-                    and self._dict["RobotModeData"]["isRobotConnected"] is True \
                     and self._dict["RobotModeData"]["isPowerOnRobot"] is True:
+                # and self._dict["RobotModeData"]["isRealRobotEnabled"] is True \
+                # and self._dict["RobotModeData"]["isRobotConnected"] is True \
                 self.running = True
             else:
                 if self.running:
@@ -336,7 +336,7 @@ class SecondaryMonitor(Thread):
                 tmp = self._s_secondary.recv(1024)
                 self._dataqueue += tmp
 
-    def wait(self, timeout=0.5):
+    def wait(self, timeout=1.5):
         """
         wait for next data packet from robot
         """
